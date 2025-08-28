@@ -12,6 +12,7 @@
     <url>https://github.com/serg-delft/jpacman-framework</url>
     <description>Pacman-inspired game, for teaching testing purposes.</description>
 
+         
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
