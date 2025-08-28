@@ -1,8 +1,8 @@
 package nl.tudelft.jpacman.e2e.framework.startup;
 
 import org.junit.runner.RunWith;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import io.cucumber.junit.platform.engine.Cucumber;
+import io.cucumber.junit.platform.engine.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
