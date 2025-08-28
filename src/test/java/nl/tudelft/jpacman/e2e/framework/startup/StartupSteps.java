@@ -2,10 +2,10 @@ package nl.tudelft.jpacman.e2e.framework.startup;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import cucumber.api.java.After;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import io.cucumber.java.After;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
 import nl.tudelft.jpacman.Launcher;
 import nl.tudelft.jpacman.game.Game;
 
