@@ -1,15 +1,18 @@
 package nl.tudelft.jpacman.e2e.framework.startup;
 
-import org.junit.runner.RunWith;
 import io.cucumber.junit.platform.engine.Cucumber;
-import io.cucumber.junit.platform.engine.CucumberOptions;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(
-    features = "src/test/resources/features",
-    glue = "nl.tudelft.jpacman.e2e.framework.startup"
-)
+/**
+ * Clase de integración para ejecutar los tests de Cucumber.
+ * Compatible con Cucumber 7+ y JUnit 5.
+ *
+ * Nota:
+ * - No se usa @RunWith ni @CucumberOptions de JUnit 4.
+ * - La configuración de features y glue se define en src/test/resources/cucumber.properties
+ */
+@Cucumber
 public class StartupTest {
-    // No additional code needed here; Cucumber runner picks up feature files
+    // Esta clase queda vacía; Cucumber se encarga de ejecutar todos los features.
 }
+
 
