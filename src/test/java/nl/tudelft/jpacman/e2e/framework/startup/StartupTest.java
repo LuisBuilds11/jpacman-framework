@@ -3,7 +3,7 @@ package nl.tudelft.jpacman.e2e.framework.startup;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
-import cucumber.api.SnippetType;
+import io.cucumber.SnippetType;
 import org.junit.runner.RunWith;
 
 /**
