@@ -1,4 +1,4 @@
-name: Java CI with Maven and SonarCloud
+name: Java CI with Maven, Tests and SonarCloud
 
 on:
   push:
@@ -31,11 +31,16 @@ jobs:
       - name: Set up Maven options
         run: echo MAVEN_OPTS=-Xmx1024m >> $GITHUB_ENV
 
-      - name: Set up headless mode for Java
-        run: echo JAVA_TOOL_OPTIONS=-Djava.awt.headless=true >> $GITHUB_ENV
+      - name: Install Xvfb for headless GUI
+        run: sudo apt-get update && sudo apt-get install -y xvfb
 
-      - name: Build and test
-        run: mvn clean verify
+      - name: Start Xvfb
+        run: |
+          Xvfb :99 -screen 0 1024x768x24 &
+          echo "DISPLAY=:99" >> $GITHUB_ENV
+
+      - name: Build and run tests with Jacoco
+        run: mvn clean verify jacoco:report
 
       - name: Run SonarCloud Analysis
         env:
@@ -46,4 +51,5 @@ jobs:
              -Dsonar.organization=luisbuilds11 \
              -Dsonar.host.url=https://sonarcloud.io \
              -Dsonar.java.coveragePlugin=jacoco \
+             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
              -Dsonar.login=${{ secrets.SONAR_TOKEN }}
