@@ -16,8 +16,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
 
         <!-- JUnit -->
         <junit.jupiter.version>5.10.0</junit.jupiter.version>
@@ -27,9 +27,9 @@
         <surefire.plugin.version>3.1.2</surefire.plugin.version>
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
         <checkstyle.version>8.9</checkstyle.version>
-        <pmd.plugin.version>3.9.0</pmd.plugin.version>
+        <pmd.plugin.version>3.21.0</pmd.plugin.version> <!-- actualizado para Java 17 -->
         <spotbugs.plugin.version>4.9.4</spotbugs.plugin.version>
-        <compiler.plugin.version>3.10.1</compiler.plugin.version>
+        <compiler.plugin.version>3.11.0</compiler.plugin.version>
 
         <!-- Sonar report paths -->
         <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
@@ -186,10 +186,19 @@
                     <includeTests>true</includeTests>
                     <failOnViolation>true</failOnViolation>
                     <rulesets><ruleset>pmd-rules.xml</ruleset></rulesets>
-                    <targetJdk>11</targetJdk>
+                    <targetJdk>17</targetJdk> <!-- actualizado a Java 17 -->
                     <linkXRef>false</linkXRef>
                     <outputDirectory>target</outputDirectory>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>pmd</goal>
+                            <goal>cpd-check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>
