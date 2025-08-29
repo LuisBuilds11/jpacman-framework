@@ -151,17 +151,25 @@
             </plugin>
 
             <!-- SpotBugs -->
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>${spotbugs.plugin.version}</version>
-                <configuration>
-                    <includeTests>true</includeTests>
-                    <failOnError>true</failOnError>
-                    <xmlOutput>true</xmlOutput>
-                    <outputDirectory>target</outputDirectory>
-                </configuration>
-            </plugin>
+                  <plugin>
+                      <groupId>com.github.spotbugs</groupId>
+                      <artifactId>spotbugs-maven-plugin</artifactId>
+                      <version>${spotbugs.plugin.version}</version>
+                      <configuration>
+                          <includeTests>true</includeTests>
+                          <failOnError>true</failOnError>
+                          <xmlOutput>true</xmlOutput>
+                          <outputDirectory>target</outputDirectory>
+                      </configuration>
+                      <executions>
+                          <execution>
+                              <phase>verify</phase>
+                              <goals>
+                                  <goal>spotbugs</goal>
+                              </goals>
+                          </execution>
+                      </executions>
+                  </plugin>
 
             <!-- Checkstyle -->
             <plugin>
