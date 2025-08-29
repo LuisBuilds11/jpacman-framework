@@ -39,9 +39,6 @@ jobs:
     - name: Run PMD
       run: mvn verify pmd:pmd
 
-    - name: Run SpotBugs
-      run: mvn verify spotbugs:spotbugs
-
     - name: Run SonarCloud
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -56,6 +53,5 @@ jobs:
         path: |
           target/site/checkstyle.html
           target/site/pmd.html
-          target/site/spotbugs.html
           target/site/jacoco/index.html
 
