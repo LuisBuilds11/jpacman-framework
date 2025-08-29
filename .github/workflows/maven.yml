@@ -32,15 +32,15 @@ jobs:
     - name: Build and test
       run: mvn clean verify -Djava.awt.headless=false
 
-      # Ejecutar los analizadores estáticos y generar reportes
+    # Ejecutar los analizadores estáticos
     - name: Run Checkstyle
-      run: mvn checkstyle:checkstyle
+      run: mvn verify checkstyle:checkstyle
 
     - name: Run PMD
-      run: mvn pmd:pmd
+      run: mvn verify pmd:pmd
 
     - name: Run SpotBugs
-      run: mvn spotbugs:spotbugs
+      run: mvn verify spotbugs:spotbugs
 
     - name: Run SonarCloud
       env:
