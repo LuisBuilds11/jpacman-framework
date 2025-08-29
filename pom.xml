@@ -30,6 +30,11 @@
         <pmd.plugin.version>3.9.0</pmd.plugin.version>
         <spotbugs.plugin.version>4.9.4</spotbugs.plugin.version>
         <compiler.plugin.version>3.10.1</compiler.plugin.version>
+
+        <!-- Sonar report paths -->
+        <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
+        <sonar.java.pmd.reportPaths>target/pmd.xml</sonar.java.pmd.reportPaths>
+        <sonar.java.spotbugs.reportPaths>target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
     </properties>
 
     <dependencies>
@@ -41,32 +46,32 @@
         </dependency>
 
         <!-- JUnit 5 -->
-         <dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-api</artifactId>
-    <version>${junit.jupiter.version}</version>
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-engine</artifactId>
-    <version>${junit.jupiter.version}</version>
-    <scope>test</scope>
-</dependency>
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-params</artifactId>
-    <version>${junit.jupiter.version}</version>
-    <scope>test</scope>
-</dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- JUnit 4 vintage support -->
-         <dependency>
-             <groupId>org.junit.vintage</groupId>
-             <artifactId>junit-vintage-engine</artifactId>
-             <version>${junit.jupiter.version}</version>
-             <scope>test</scope>
-         </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- Mockito & AssertJ -->
         <dependency>
@@ -83,18 +88,18 @@
         </dependency>
 
         <!-- Cucumber 7 -->
-         <dependency>
-             <groupId>io.cucumber</groupId>
-             <artifactId>cucumber-java</artifactId>
-             <version>7.11.2</version>
-             <scope>test</scope>
-         </dependency>
-         <dependency>
-             <groupId>io.cucumber</groupId>
-             <artifactId>cucumber-junit-platform-engine</artifactId>
-             <version>7.11.2</version>
-             <scope>test</scope>
-         </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.11.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>7.11.2</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- SpotBugs annotations -->
         <dependency>
@@ -153,6 +158,8 @@
                 <configuration>
                     <includeTests>true</includeTests>
                     <failOnError>true</failOnError>
+                    <xmlOutput>true</xmlOutput>
+                    <outputDirectory>target</outputDirectory>
                 </configuration>
             </plugin>
 
@@ -165,6 +172,8 @@
                     <configLocation>${basedir}/checkstyle.xml</configLocation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <failOnViolation>true</failOnViolation>
+                    <outputFile>target/checkstyle-result.xml</outputFile>
+                    <outputFileFormat>xml</outputFileFormat>
                 </configuration>
             </plugin>
 
@@ -177,6 +186,9 @@
                     <includeTests>true</includeTests>
                     <failOnViolation>true</failOnViolation>
                     <rulesets><ruleset>pmd-rules.xml</ruleset></rulesets>
+                    <targetJdk>11</targetJdk>
+                    <linkXRef>false</linkXRef>
+                    <outputDirectory>target</outputDirectory>
                 </configuration>
             </plugin>
 
