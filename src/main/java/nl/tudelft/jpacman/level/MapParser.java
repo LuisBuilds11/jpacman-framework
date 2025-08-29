@@ -238,8 +238,8 @@ public class MapParser {
      * @throws IOException
      *             when the resource could not be read.
      */
-    @SuppressFBWarnings(value = "OBL_UNSATISFIED_OBLIGATION",
-                        justification = "try with resources always cleans up")
+   // @SuppressFBWarnings(value = "OBL_UNSATISFIED_OBLIGATION",
+   //                     justification = "try with resources always cleans up")
     public Level parseMap(String mapName) throws IOException {
         try (InputStream boardStream = MapParser.class.getResourceAsStream(mapName)) {
             if (boardStream == null) {
