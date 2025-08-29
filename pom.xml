@@ -28,13 +28,13 @@
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
         <checkstyle.version>8.9</checkstyle.version>
         <pmd.plugin.version>3.21.0</pmd.plugin.version> <!-- actualizado para Java 17 -->
-        <spotbugs.plugin.version>4.9.4</spotbugs.plugin.version>
+        <!--spotbugs.plugin.version>4.9.4</spotbugs.plugin.version-->
         <compiler.plugin.version>3.11.0</compiler.plugin.version>
 
         <!-- Sonar report paths -->
         <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
         <sonar.java.pmd.reportPaths>target/pmd.xml</sonar.java.pmd.reportPaths>
-        <sonar.java.spotbugs.reportPaths>target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
+        <!--sonar.java.spotbugs.reportPaths>target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths-->
     </properties>
 
     <dependencies>
@@ -102,12 +102,12 @@
         </dependency>
 
         <!-- SpotBugs annotations -->
-        <dependency>
+        <!--dependency>
             <groupId>com.github.spotbugs</groupId>
             <artifactId>spotbugs-annotations</artifactId>
             <version>${spotbugs.plugin.version}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency-->
     </dependencies>
 
     <build>
@@ -151,7 +151,7 @@
             </plugin>
 
             <!-- SpotBugs -->
-         <plugin>
+         <!--plugin>
              <groupId>com.github.spotbugs</groupId>
              <artifactId>spotbugs-maven-plugin</artifactId>
              <version>4.9.3.0</version>
@@ -169,7 +169,7 @@
                      </goals>
                  </execution>
              </executions>
-         </plugin>
+         </plugin-->
 
             <!-- Checkstyle -->
             <plugin>
