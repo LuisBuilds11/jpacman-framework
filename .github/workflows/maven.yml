@@ -31,6 +31,9 @@ jobs:
       - name: Set up Maven options
         run: echo MAVEN_OPTS=-Xmx1024m >> $GITHUB_ENV
 
+      - name: Set up headless mode for Java
+        run: echo JAVA_TOOL_OPTIONS=-Djava.awt.headless=true >> $GITHUB_ENV
+
       - name: Build and test
         run: mvn clean verify
 
