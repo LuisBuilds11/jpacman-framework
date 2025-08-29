@@ -2,7 +2,7 @@ name: Java CI with Maven and SonarCloud
 
 on:
   push:
-    branches: [ Luis-1 ]  # tu rama principal
+    branches: [ Luis-1 ]
   pull_request:
     branches: [ Luis-1 ]
 
@@ -29,8 +29,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Set up Maven options
-        run: |
-          echo "MAVEN_OPTS='-Xmx1024m'" >> $GITHUB_ENV
+        run: echo MAVEN_OPTS=-Xmx1024m >> $GITHUB_ENV
 
       - name: Build and test
         run: mvn clean verify
