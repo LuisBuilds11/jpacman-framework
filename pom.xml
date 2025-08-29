@@ -185,8 +185,9 @@
                 <configuration>
                     <includeTests>true</includeTests>
                     <failOnViolation>true</failOnViolation>
-                    <rulesets><ruleset>pmd-rules.xml</ruleset></rulesets>
-                    <targetJdk>11</targetJdk>
+                    <rulesets>
+                        <ruleset>pmd-rules.xml</ruleset>
+                    </rulesets>
                     <linkXRef>false</linkXRef>
                     <outputDirectory>target</outputDirectory>
                 </configuration>
