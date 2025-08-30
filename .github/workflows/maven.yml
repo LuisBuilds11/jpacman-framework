@@ -32,13 +32,20 @@ jobs:
     - name: Build and test
       run: mvn clean verify -Djava.awt.headless=false
 
-    # Ejecutar los analizadores estáticos
+    # Ejecutar analizadores estáticos y generar reportes XML
     - name: Run Checkstyle
       run: mvn verify checkstyle:checkstyle
 
     - name: Run PMD
       run: mvn verify pmd:pmd
 
+    # Revisar que los reportes se generaron correctamente (opcional)
+    - name: List report files
+      run: |
+        ls -l target/site/checkstyle
+        ls -l target/site/pmd
+
+    # Ejecutar SonarCloud e importar los reportes
     - name: Run SonarCloud
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
