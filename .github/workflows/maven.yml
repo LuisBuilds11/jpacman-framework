@@ -43,7 +43,7 @@ jobs:
     - name: List report files
       run: |
         ls -l target/checkstyle-result.xml
-        ls -l target/site/pmd
+        ls -l target/pmd*
 
     # Ejecutar SonarCloud e importar los reportes
     - name: Run SonarCloud
